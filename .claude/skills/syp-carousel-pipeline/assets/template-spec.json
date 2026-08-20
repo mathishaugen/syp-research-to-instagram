@@ -1,0 +1,54 @@
+{
+  "_locked_by": "Mathis, 2026-08-19 — v2, rebuilt against the actual reference carousel + its source Canva template",
+  "_note": "Source of truth for the syp research-carousel visual system: black canvas, white text, blue highlight, squiggle logo. Two slide-type families (see render-svg.js header) draw on this one token set but should not be mixed within a single day's carousel — pick one family per run for variety across days. Do not change these tokens unless the user explicitly asks to revise the template itself.",
+  "canvas": { "w": 1080, "h": 1350 },
+  "bg": "#000000",
+  "colors": {
+    "white": "#f5f5f5",
+    "whiteDim": "rgba(245,245,245,0.55)",
+    "blue": "#1c7ef2",
+    "blueText": "#3d8bf5",
+    "blueSoft": "rgba(28,126,242,0.12)"
+  },
+  "font": {
+    "family": "'Poppins', 'Segoe UI', Arial, sans-serif",
+    "regularWeight": 400,
+    "boldWeight": 700
+  },
+  "margin": { "x": 90, "top": 460, "bottom": 150 },
+  "logo": {
+    "pathAsset": "logo-path.txt",
+    "nativeWidth": 381,
+    "nativeHeight": 678,
+    "aspect": 0.5619,
+    "height": 150,
+    "top": 60,
+    "right": 60
+  },
+  "illustration": {
+    "pathAsset": "illustration-path.txt",
+    "nativeWidth": 429,
+    "nativeHeight": 379,
+    "width": 400,
+    "aspect": 0.8834
+  },
+  "footer": {
+    "size": 30,
+    "y": 1290
+  },
+  "sizes": {
+    "statementLarge": 80,
+    "statementMedium": 62,
+    "statementSmall": 50,
+    "eyebrow": 32,
+    "body": 40,
+    "listItem": 38,
+    "statLabel": 38,
+    "statValue": 70,
+    "bigStatValue": 150,
+    "ctaHeading": 52,
+    "ctaSub": 32
+  },
+  "lineHeight": 1.12,
+  "highlightPad": { "x": 16, "y": 12 }
+}
