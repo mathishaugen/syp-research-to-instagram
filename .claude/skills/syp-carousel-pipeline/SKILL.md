@@ -131,6 +131,17 @@ deck.
       named `01 - <short slide gist>.png` through `09 - ...png`. Check the
       printed `size` against the local file's byte size after each — it
       should match exactly.
+   3. **Also write the Instagram caption into the same dated folder**, as a
+      plain `.txt` file named `caption.txt` — the full caption text (hook +
+      body + hashtags), nothing else. Write it to a local scratch file first,
+      then `python drive_upload.py upload <folder_id> <caption_path> "caption.txt"`.
+      Marketing needs the caption sitting right next to that day's images,
+      not just visible in the review gallery — every run drops one, no
+      exceptions.
+      - In the cloud routine (no local Python/OAuth script available), use
+        the Drive connector's `create_file` with `textContent` for this one
+        file instead — plain text through that path is reliable (only
+        binary/base64 was ever the problem, see the section below).
 8. **Tell the user**: the gallery link, the Drive subfolder link, a
    one-sentence summary of the article and the angle the carousel takes, and
    which family was used (so they can tell at a glance the last run used the
