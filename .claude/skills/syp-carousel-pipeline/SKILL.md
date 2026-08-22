@@ -142,6 +142,19 @@ deck.
         the Drive connector's `create_file` with `textContent` for this one
         file instead — plain text through that path is reliable (only
         binary/base64 was ever the problem, see the section below).
+   4. **Also write a standalone X (Twitter) post into the same dated folder**,
+      as `x-post.txt` — one self-contained short-form version of the same
+      story, NOT just a trimmed copy of the Instagram caption. Rewrite it in
+      X's native register: single punchy hook, 1-2 supporting facts, a plain
+      one-line takeaway, no more than 1-2 hashtags (X readers don't scan
+      hashtag-heavy copy the way IG readers do). Hard cap at 280 characters
+      total including any link/hashtags — check the character count before
+      writing the file, don't just aim for "short." End with
+      `syphydration.com` if it fits. Upload the same way as `caption.txt`
+      (`drive_upload.py` locally, `create_file`/`textContent` in the cloud).
+      There is no image requirement for this one — it's text-only, to be
+      pasted directly into a new X post; the carousel images are for
+      Instagram, not X.
 8. **Tell the user**: the gallery link, the Drive subfolder link, a
    one-sentence summary of the article and the angle the carousel takes, and
    which family was used (so they can tell at a glance the last run used the
