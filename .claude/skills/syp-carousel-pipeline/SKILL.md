@@ -202,6 +202,33 @@ behavior) — this is why the syp logo went missing in Drive's SVG preview
 even though the SVG file itself was correct. Not relevant once PNG is the
 primary format, but worth remembering if SVG delivery ever comes back.
 
+## The cloud routine only uploads SVG — a local step converts it to PNG
+
+The **"Research to Instagram"** cloud routine (`trig_01PSBRVgCz99Yo2uE8bcBcfs`)
+has no Chromium and no access to `drive_upload.py`'s OAuth credentials, so its
+stored prompt has it upload the 9 rendered SVGs straight into the dated Drive
+subfolder via the Drive connector's `create_file` (`textContent`, reliable for
+text). That is deliberate and correct for the cloud leg — **but it means the
+Drive folder is SVG-only right after the cloud run**, not the PNG/JPG
+marketing actually needs.
+
+**The fix**: `C:\Users\Mathis Haugen\.syp-carousel-pipeline\finish-carousel-drive.py`,
+run locally by Windows Task Scheduler task `syp-carousel-drive-finish` daily at
+7:20am Mountain (9:20am ET — ~16 min after the cloud routine's 9:04am ET fire,
+which has taken 10-13 min end to end both times it's run). It:
+1. Finds today's dated subfolder under `drive-folder-id.txt`'s parent.
+2. Downloads each SVG via the real Drive API (bytes only ever move through
+   code — never retyped by a model, so no corruption risk).
+3. Rasterizes with the same `svg-to-png.js` + Playwright used everywhere else.
+4. Uploads each PNG via `drive_upload.py`, verifying byte-exact size.
+5. Trashes the original SVGs, leaving the folder PNG-only.
+
+If this task is ever disabled or the machine is off at run time, the Drive
+folder will silently stay SVG-only for that day — check
+`Get-ScheduledTask -TaskName syp-carousel-drive-finish` if PNGs go missing
+again, and re-run manually with
+`python finish-carousel-drive.py YYYY-MM-DD` for any date it missed.
+
 ## What this skill does not do
 
 - Does not post to Instagram or any social platform — marketing takes it
